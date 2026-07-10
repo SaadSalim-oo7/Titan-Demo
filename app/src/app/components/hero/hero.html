@@ -1,0 +1,77 @@
+<section class="relative w-full bg-white overflow-hidden font-sans flex flex-col justify-between pt-2 md:pt-4 pb-0">
+  <!-- Top Right Sparkles Accent -->
+  <div class="absolute right-8 top-12 md:right-16 md:top-16 flex flex-col gap-2 pointer-events-none select-none z-0">
+    <svg class="w-8 h-8 text-violet-400/80 animate-pulse" viewBox="0 0 24 24" fill="currentColor">
+      <path d="M12 2L14.5 9.5L22 12L14.5 14.5L12 22L9.5 14.5L2 12L9.5 9.5L12 2Z" />
+    </svg>
+    <svg class="w-4 h-4 text-violet-400/50 self-end mr-2 animate-ping" viewBox="0 0 24 24" fill="currentColor">
+      <path d="M12 2L14.5 9.5L22 12L14.5 14.5L12 22L9.5 14.5L2 12L9.5 9.5L12 2Z" />
+    </svg>
+  </div>
+
+  <div class="absolute left-0 top-12 hidden md:block pointer-events-none select-none z-0">
+    <div class="absolute -left-48 top-8 w-96 h-96 border border-violet-300 rounded-full opacity-60"></div>
+
+    <div class="absolute left-[11.2rem] top-[17.5rem] w-[1px] h-20 bg-violet-400 rotate-[45deg] origin-top-left opacity-75"></div>
+
+    <div class="absolute left-[13.5rem] top-[22.5rem] w-9 h-16 border border-violet-400 rounded-full flex flex-col items-center justify-between py-3">
+      <div class="w-1 h-3 bg-violet-400 rounded-full animate-scroll-dot"></div>
+      <svg class="w-3.5 h-3.5 text-violet-500/80" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+      </svg>
+    </div>
+  </div>
+
+  <!-- Main Hero Content Grid -->
+  <div class="max-w-7xl mx-auto px-6 md:px-12 w-full flex-grow grid grid-cols-1 md:grid-cols-12 gap-8 items-center relative z-10 mt-2 md:mt-4">
+
+    <!-- Left Column: Title and Subtitle -->
+    <div class="md:col-span-8 flex flex-col justify-center hero-title-animate">
+      <h1 class="text-6xl sm:text-7xl md:text-[5.5rem] lg:text-[7rem] font-extrabold tracking-wider text-neutral-900 leading-none select-none">
+        TITAN
+      </h1>
+
+      <div class="flex items-center gap-6 mt-1 md:mt-2">
+        <h2 class="text-2xl sm:text-3xl md:text-4xl lg:text-[2.75rem] font-black tracking-normal text-neutral-900 whitespace-nowrap">
+          FINANCIAL BROKERS
+        </h2>
+        <!-- Horizontal Gray Decorator Line -->
+        <div class="flex-grow h-[1px] bg-neutral-300 mt-2 hidden md:block"></div>
+      </div>
+
+      <p class="text-lg sm:text-xl md:text-2xl text-neutral-600 mt-6 md:mt-8 font-medium">
+        Here to Serve You Better
+      </p>
+    </div>
+
+    <!-- Right Column: Video Play Button CTA -->
+    <div class="md:col-span-4 flex justify-start md:justify-end items-center">
+      <a href="#" class="flex items-center gap-4 group cursor-pointer" aria-label="Watch Video Intro">
+        <!-- Play Button Circle -->
+        <div class="w-14 h-14 md:w-16 md:h-16 rounded-full bg-yellow-400 flex items-center justify-center shadow-lg shadow-yellow-400/30 transition-all duration-300 transform group-hover:scale-110 group-hover:rotate-12 group-hover:bg-yellow-350">
+          <!-- Play Icon Triangle -->
+          <svg class="w-5 h-5 md:w-6 md:h-6 text-neutral-900 fill-current ml-1" viewBox="0 0 24 24">
+            <path d="M8 5v14l11-7z" />
+          </svg>
+        </div>
+        <!-- Play Button Text -->
+        <span class="text-xs md:text-sm font-black tracking-widest text-neutral-950 leading-tight">
+          WATCH<br>VIDEO INTRO
+        </span>
+      </a>
+    </div>
+
+  </div>
+
+  <!-- Bottom Workspace Image Section -->
+  <div class="w-full flex justify-end mt-4 md:mt-6 relative z-10">
+    <div class="w-full md:w-[58%] lg:w-[50%] rounded-tl-2xl rounded-bl-2xl overflow-hidden shadow-xl border-l border-y border-neutral-100 bg-neutral-50 group relative">
+      <!-- Gradient overlay to keep it premium -->
+      <div class="absolute inset-0 bg-gradient-to-t from-black/10 via-transparent to-transparent pointer-events-none z-10"></div>
+      <!-- Premium Office Image -->
+      <img src="titanhero.jpg"
+           alt="Titan Financial Brokers Modern Office Workspace"
+           class="w-full h-[180px] sm:h-[240px] md:h-[320px] lg:h-[360px] object-cover object-center transform scale-100 group-hover:scale-[1.03] transition-transform duration-700 ease-out" />
+    </div>
+  </div>
+</section>

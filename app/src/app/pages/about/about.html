@@ -1,0 +1,85 @@
+<section #aboutSection class="relative w-full bg-[#0e0e0e] overflow-hidden font-sans py-20 md:py-32 select-none">
+  
+  <!-- Decorative Right-Aligned Circle Contour -->
+  <div class="absolute right-[-140px] top-1/2 -translate-y-1/2 pointer-events-none select-none z-0 hidden md:block">
+    <!-- Double concentric yellow border curves -->
+    <div class="w-80 h-80 rounded-full border border-yellow-500/20 relative">
+      <div class="absolute inset-4 rounded-full border border-yellow-500/10"></div>
+    </div>
+  </div>
+
+  <div class="max-w-7xl mx-auto px-6 md:px-12 grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center relative z-10">
+    
+    <!-- Left Column: Parallax Image Container -->
+    <div class="lg:col-span-5 flex justify-center">
+      <!-- Container frame: Fixed height with hidden overflow to crop the image -->
+      <div class="w-full max-w-[420px] h-[520px] md:h-[620px] rounded-2xl overflow-hidden shadow-2xl relative bg-neutral-900 border border-neutral-800">
+        
+        <!-- Parallax Image (Height is 125% to allow for scrolling within the frame) -->
+        <img src="titanabout.jpg" 
+             alt="Titan Financial Brokers Team Meeting"
+             class="absolute top-0 left-0 w-full h-[125%] object-cover object-center will-change-transform ease-out duration-100"
+             [style.transform]="'translateY(' + translateY + '%)'" />
+      </div>
+    </div>
+
+    <div class="lg:col-span-7 flex flex-col justify-center">
+  <!-- Section Tagline -->
+  <span class="text-xs md:text-sm font-semibold tracking-[0.25em] text-neutral-400 uppercase">
+    WHO WE ARE
+  </span>
+  
+  <!-- Main Section Heading -->
+  <h2 class="text-4xl md:text-5xl lg:text-6xl font-black tracking-tight text-white uppercase mt-4 leading-[1.1]">
+    WE ARE LEADING<br />FINANCIAL BROKERS
+  </h2>
+
+  <!-- Three-column Layout (Yellow Dot on Left, Vertical Line in Middle, Content on Right) -->
+  <div class="flex items-stretch gap-6 md:gap-8 mt-8 md:mt-12 ml-1 md:ml-2">
+    
+    <!-- Left: Yellow Dot Column (Aligned vertically with paragraph top) -->
+    <div class="flex-shrink-0 flex flex-col items-center pt-1.5 pointer-events-none select-none">
+      <div class="w-8 h-8 rounded-full border border-yellow-400/40 flex items-center justify-center">
+        <div class="w-2.5 h-2.5 bg-yellow-400 rounded-full"></div>
+      </div>
+    </div>
+
+    <!-- Middle: Stretching Vertical Gray Divider Line -->
+    <div class="w-[1px] bg-neutral-800 self-stretch"></div>
+
+    <!-- Right: Description Paragraphs and CTA button -->
+    <div class="flex-grow pl-2 md:pl-4">
+      
+      <!-- Paragraphs (Normal block-stack layout) -->
+      <div class="text-neutral-400 text-base md:text-lg font-medium leading-relaxed max-w-[620px] mb-8 md:mb-12">
+        <p class="mb-6">
+          Whether this is your first venture into banking and financial products, or you've been to the show before, you can place your trust in us to get the job done and guide you seamlessly through the process.
+        </p>
+        <p>
+          With our blend of products and services available, complemented by an immensely experienced team of consultants you can rest assured you will be experiencing the best end-to-end service while getting access to the best financial solutions in the market.
+        </p>
+      </div>
+
+      <!-- Explore Us ↗ Circular Link Button -->
+      <a href="#" class="w-28 h-28 md:w-32 md:h-32 rounded-full border border-neutral-800 flex items-center justify-center group hover:border-white hover:bg-white/5 transition-all duration-300 transform hover:scale-105 cursor-pointer inline-flex">
+        <span class="text-xs md:text-sm font-bold tracking-widest text-white transition-all duration-300 group-hover:text-yellow-400">
+          EXPLORE US ↗
+        </span>
+      </a>
+
+    </div>
+
+  </div>
+</div>
+
+  </div>
+
+  <!-- Float to Top Arrow Indicator (bottom-right edge of screen) -->
+  <button (click)="scrollToTop()" 
+          class="fixed bottom-6 right-6 w-12 h-12 rounded-full bg-white text-neutral-950 flex items-center justify-center shadow-2xl hover:scale-115 active:scale-95 transition-all duration-300 z-50 cursor-pointer border border-neutral-200" 
+          aria-label="Scroll back to top">
+    <svg class="w-5 h-5 font-bold" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 10l7-7m0 0l7 7m-7-7v18" />
+    </svg>
+  </button>
+</section>

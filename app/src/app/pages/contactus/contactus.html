@@ -1,0 +1,105 @@
+<section class="relative w-full bg-[#D3D5F5] px-6 py-24 md:px-16 min-h-screen">
+  <div class="mx-auto grid max-w-7xl grid-cols-1 items-start gap-16 lg:grid-cols-2">
+
+    <!-- Left column -->
+    <div class="relative">
+      <p class="mb-4 text-sm font-semibold uppercase tracking-widest text-neutral-600">
+        Looking For?
+      </p>
+
+      <h2 class="mb-10 text-4xl font-extrabold leading-tight tracking-tight text-neutral-900 lg:text-6xl">
+        What Can We Do For You Today?
+      </h2>
+
+      <p class="max-w-md text-lg leading-relaxed text-neutral-900">
+        Please select what you are looking for below or call us on
+        <a href="tel:043148300" class="font-bold text-purple-700 hover:underline">04 314 8300</a>
+      </p>
+
+      <p class="mt-6 max-w-md text-base leading-relaxed text-neutral-600">
+        We set ourselves aside from other organisations as we don't 'sell' products any more than
+        we assist, assess, guide and recommend. We're here for the client, we're here to serve you better.
+      </p>
+
+      <button
+        class="group mt-16 flex h-44 w-44 items-center justify-center rounded-full border border-neutral-900/60 text-left transition-colors hover:bg-neutral-900/5">
+        <span class="flex items-center gap-2 text-lg font-semibold text-purple-700">
+          Contact Us
+          <br />
+          Now
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 shrink-0 -mt-6 transition-transform group-hover:translate-x-1 group-hover:-translate-y-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 19.5L19.5 4.5m0 0H8.25m11.25 0v11.25" />
+          </svg>
+        </span>
+      </button>
+    </div>
+
+    <!-- Right column: option cards -->
+    <div class="relative flex flex-col gap-8">
+
+      <!-- decorative dot, sits between the two cards on the left edge -->
+      <div class="pointer-events-none absolute -left-16 top-[46%] hidden h-8 w-8 items-center justify-center rounded-full border border-purple-700/40 lg:flex">
+        <span class="h-2 w-2 rounded-full bg-purple-700"></span>
+      </div>
+
+      <div
+        *ngFor="let opt of options; let i = index"
+        class="relative rounded-2xl px-10 py-10 transition-colors duration-300"
+        [ngClass]="opt.selected ? 'bg-neutral-900 text-white' : 'bg-white text-neutral-900'"
+      >
+        <!-- checkmark badge on the selected card -->
+        <div
+          *ngIf="opt.selected"
+          class="absolute -left-4 -top-4 flex h-10 w-10 items-center justify-center rounded-lg border-2 border-purple-500 bg-purple-700">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" />
+          </svg>
+        </div>
+
+        <button
+          (click)="selectOption(i)"
+          class="mb-6 rounded-full border px-5 py-1.5 text-xs font-semibold uppercase tracking-wide transition-colors"
+          [ngClass]="opt.selected
+            ? 'border-white/60 text-white hover:bg-white/10'
+            : 'border-neutral-900/60 text-neutral-900 hover:bg-neutral-900/5'"
+        >
+          Select
+        </button>
+
+        <h3 class="mb-5 text-2xl font-extrabold leading-snug lg:text-3xl">
+          {{ opt.title }}
+        </h3>
+
+        <ul class="space-y-2">
+          <li *ngFor="let point of opt.points" class="flex gap-3 text-base leading-relaxed" [ngClass]="opt.selected ? 'text-neutral-200' : 'text-neutral-700'">
+            <span class="mt-1 shrink-0">→</span>
+            <span>{{ point }}</span>
+          </li>
+        </ul>
+      </div>
+
+      <!-- decorative "abc" keyboard icon tile, overlapping the bottom-right of the last card -->
+      <div class="pointer-events-none absolute -bottom-10 -right-8 hidden h-32 w-32 rounded-2xl bg-neutral-300/70 md:block">
+        <div class="absolute -top-4 left-1/2 flex h-16 w-16 -translate-x-1/2 items-center justify-center rounded-xl bg-white shadow-lg">
+          <span class="text-sm font-semibold text-neutral-500">abc</span>
+        </div>
+        <div class="absolute -right-3 -top-3 flex h-8 w-8 items-center justify-center rounded-lg border-2 border-purple-500 bg-purple-700">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" />
+          </svg>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- scroll to top -->
+  <button
+    (click)="scrollToTop()"
+    class="fixed bottom-8 right-8 z-20 flex h-14 w-14 items-center justify-center rounded-full bg-neutral-900 text-white shadow-lg transition-transform hover:scale-105"
+  >
+    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+      <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 15.75l7.5-7.5 7.5 7.5" />
+    </svg>
+  </button>
+</section>

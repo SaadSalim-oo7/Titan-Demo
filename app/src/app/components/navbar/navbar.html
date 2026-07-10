@@ -1,0 +1,46 @@
+<nav class="bg-white shadow-md sticky top-0 z-50">
+  <div class="max-w-7xl mx-auto px-6">
+    <div class="flex justify-between items-center h-16">
+      
+      <!-- Logo -->
+      <div class="flex items-center gap-3">
+        <img src="assets/logo.png" alt="Titan Logo" class="h-10 w-10">
+        <div>
+          <h1 class="text-2xl font-bold tracking-tight text-gray-900">TITAN</h1>
+          <p class="text-xs text-gray-500 -mt-1 font-medium">FINANCIAL BROKERS</p>
+        </div>
+      </div>
+
+      <!-- Desktop Menu -->
+      <div class="hidden md:flex items-center gap-8 text-sm font-semibold">
+        <a href="#" class="text-gray-700 hover:text-blue-600 transition-colors">HOME</a>
+        <a href="#" class="text-gray-700 hover:text-blue-600 transition-colors">MORTGAGES</a>
+        <a href="#" class="text-gray-700 hover:text-blue-600 transition-colors">BUSINESS BANKING</a>
+        <a href="#" class="text-gray-700 hover:text-blue-600 transition-colors">PERSONAL LOAN</a>
+        <a href="#" class="text-gray-700 hover:text-blue-600 transition-colors">CREDIT CARDS</a>
+        <a href="#" class="text-gray-700 hover:text-blue-600 transition-colors">CAREERS</a>
+        <a href="#" class="text-gray-700 hover:text-blue-600 transition-colors">CONTACT</a>
+        <a href="#" class="text-gray-700 hover:text-blue-600 transition-colors">CALCULATOR</a>
+      </div>
+
+      <!-- Mobile Menu Button -->
+      <button (click)="toggleMobileMenu()" class="md:hidden text-3xl text-gray-700">
+        ☰
+      </button>
+    </div>
+  </div>
+
+  <!-- Mobile Menu -->
+  <div [class.hidden]="!isMobileMenuOpen" class="md:hidden bg-white border-t">
+    <div class="px-6 py-4 flex flex-col gap-4 text-sm font-medium">
+      <a href="#" class="text-gray-700 hover:text-blue-600">HOME</a>
+      <a href="#" class="text-gray-700 hover:text-blue-600">MORTGAGES</a>
+      <a href="#" class="text-gray-700 hover:text-blue-600">BUSINESS BANKING</a>
+      <a href="#" class="text-gray-700 hover:text-blue-600">PERSONAL LOAN</a>
+      <a href="#" class="text-gray-700 hover:text-blue-600">CREDIT CARDS</a>
+      <a href="#" class="text-gray-700 hover:text-blue-600">CAREERS</a>
+      <a href="#" class="text-gray-700 hover:text-blue-600">CONTACT</a>
+      <a href="#" class="text-gray-700 hover:text-blue-600">CALCULATOR</a>
+    </div>
+  </div>
+</nav>
