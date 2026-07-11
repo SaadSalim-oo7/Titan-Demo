@@ -11,11 +11,11 @@
   ],
   "routes": [
     {
-      "src": "/(favicon.ico|assets|public)/(.*)",
+      "src": "/(assets|public)/(.*)",
       "dest": "/$1/$2"
     },
     {
-      "src": "/(.*\\.(js|css|png|jpg|jpeg|gif|ico|svg|woff|woff2|ttf))$",
+      "src": "/(.*\\.(js|css|png|jpg|jpeg|gif|ico|svg|woff|woff2|ttf|eot))$",
       "dest": "/$1"
     },
     {
