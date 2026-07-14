@@ -4,7 +4,13 @@ module.exports = {
     "./src/**/*.{html,ts}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        sora: ['Sora', 'sans-serif'],
+        grotesk: ['Space Grotesk', 'sans-serif'],
+        plex: ['IBM Plex Sans', 'sans-serif'],
+      },
+    },
   },
   plugins: [],
 }

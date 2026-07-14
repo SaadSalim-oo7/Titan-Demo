@@ -17,20 +17,20 @@ interface LookingForOption {
 export class ContactSelect {
   options: LookingForOption[] = [
     {
-      title: 'HOME FINANCE & MORTGAGE SOLUTIONS',
+      title: 'IMPORT & EXPORT TRADING',
       points: [
-        'Access to the best products in the market',
-        'An assigned consultant to handle the process end to end',
-        "Covering all types of finance whether it's Islamic, conventional, a new purchase or a home loan buy out",
+        'Global sourcing and verified supplier network',
+        'Customs clearance and full trade documentation handled for you',
+        'Freight, shipping and last-mile delivery across 40+ countries',
       ],
       selected: true,
     },
     {
-      title: 'CREDIT CARD, LOANS & ACCOUNTS',
+      title: 'REAL ESTATE INVESTMENT',
       points: [
-        'Access to experienced consultants',
-        'Comprehensive options for all client types available',
-        'Recommendations tailored to your needs and requirements',
+        'Off-plan and ready properties across Dubai\u2019s top locations',
+        'Guidance on high-yield areas and investment strategy',
+        'End-to-end transaction support, from offer to title deed',
       ],
       selected: false,
     },

@@ -1,0 +1,58 @@
+<section class="relative w-full overflow-hidden bg-white px-6 py-24 md:px-16 min-h-screen">
+
+  <!-- Fixed decorative images — stay in place regardless of which testimonial is active -->
+  <div class="pointer-events-none absolute inset-0 hidden lg:block">
+    <img
+      [src]="decorativeImages[0]"
+      class="absolute left-[6%] top-[36%] h-56 w-72 rounded-sm object-cover shadow-xl opacity-90"
+      alt="" />
+    <img
+      [src]="decorativeImages[1]"
+      class="absolute right-[8%] top-[10%] h-40 w-52 rounded-sm object-cover shadow-xl opacity-90"
+      alt="" />
+    <img
+      [src]="decorativeImages[2]"
+      class="absolute right-[10%] top-[46%] h-64 w-60 rounded-sm object-cover shadow-xl opacity-90"
+      alt="" />
+  </div>
+
+  <!-- Section heading -->
+  <h2 class="relative z-10 text-center font-serif text-3xl font-semibold text-neutral-900 md:text-4xl">
+    What Our Client Says
+  </h2>
+
+  <!-- Centered quote block -->
+  <div class="relative z-10 mx-auto mt-14 flex max-w-2xl flex-col items-center text-center">
+
+    <p class="text-xl italic leading-relaxed text-neutral-800 md:text-2xl">
+      <span class="mr-1 align-[-0.3em] font-serif text-4xl not-italic text-neutral-400 md:text-5xl">&ldquo;</span>{{ current.quote }}<span class="ml-1 align-[-0.3em] font-serif text-4xl not-italic text-neutral-400 md:text-5xl">&rdquo;</span>
+    </p>
+
+    <p class="mt-8 text-lg font-bold uppercase tracking-wide text-neutral-900">
+      {{ current.name }}
+    </p>
+
+    <!-- Pagination -->
+    <div class="mt-16 flex items-center gap-4">
+      <button
+        (click)="prevTestimonial()"
+        aria-label="Previous testimonial"
+        class="flex h-11 w-11 items-center justify-center rounded-full border border-neutral-300 text-neutral-700 transition-colors hover:border-neutral-900 hover:bg-neutral-900/5">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 19.5L3 12m0 0l7.5-7.5M3 12h18" />
+        </svg>
+      </button>
+
+      <button
+        (click)="nextTestimonial()"
+        aria-label="Next testimonial"
+        class="flex h-11 w-11 items-center justify-center rounded-full border border-neutral-300 text-neutral-700 transition-colors hover:border-neutral-900 hover:bg-neutral-900/5">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
+        </svg>
+      </button>
+    </div>
+
+  </div>
+
+</section>

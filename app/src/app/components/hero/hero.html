@@ -9,38 +9,29 @@
     </svg>
   </div>
 
-  <div class="absolute left-0 top-12 hidden md:block pointer-events-none select-none z-0">
-    <div class="absolute -left-48 top-8 w-96 h-96 border border-violet-300 rounded-full opacity-60"></div>
-
-    <div class="absolute left-[11.2rem] top-[17.5rem] w-[1px] h-20 bg-violet-400 rotate-[45deg] origin-top-left opacity-75"></div>
-
-    <div class="absolute left-[13.5rem] top-[22.5rem] w-9 h-16 border border-violet-400 rounded-full flex flex-col items-center justify-between py-3">
-      <div class="w-1 h-3 bg-violet-400 rounded-full animate-scroll-dot"></div>
-      <svg class="w-3.5 h-3.5 text-violet-500/80" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3" />
-      </svg>
-    </div>
-  </div>
-
   <!-- Main Hero Content Grid -->
   <div class="max-w-7xl mx-auto px-6 md:px-12 w-full flex-grow grid grid-cols-1 md:grid-cols-12 gap-8 items-center relative z-10 mt-2 md:mt-4">
 
     <!-- Left Column: Title and Subtitle -->
     <div class="md:col-span-8 flex flex-col justify-center hero-title-animate">
-      <h1 class="text-6xl sm:text-7xl md:text-[5.5rem] lg:text-[7rem] font-extrabold tracking-wider text-neutral-900 leading-none select-none">
-        TITAN
+      <h1 class="font-plex text-6xl sm:text-7xl md:text-[5.5rem] lg:text-[7rem] font-bold tracking-wider text-[#B8860B] leading-none select-none">
+        UAC
       </h1>
 
-      <div class="flex items-center gap-6 mt-1 md:mt-2">
-        <h2 class="text-2xl sm:text-3xl md:text-4xl lg:text-[2.75rem] font-black tracking-normal text-neutral-900 whitespace-nowrap">
-          FINANCIAL BROKERS
-        </h2>
+      <div class="flex items-center gap-6 -mt-2 md:-mt-3">
+        <span class="text-xl md:text-2xl text-[#B8860B] font-semibold tracking-wide whitespace-nowrap">
+          يونايتد أكسس كوميرشال إف زد ذ.م.م
+        </span>
         <!-- Horizontal Gray Decorator Line -->
-        <div class="flex-grow h-[1px] bg-neutral-300 mt-2 hidden md:block"></div>
+        <div class="flex-grow h-[1px] bg-neutral-300 hidden md:block"></div>
       </div>
 
+      <h2 class="text-2xl sm:text-3xl md:text-4xl lg:text-[2.75rem] text-gray-600 tracking-normal whitespace-nowrap mt-6 md:mt-8">
+        United Axis Commercial FZ-LLC
+      </h2>
+
       <p class="text-lg sm:text-xl md:text-2xl text-neutral-600 mt-6 md:mt-8 font-medium">
-        Here to Serve You Better
+        Bridging global trade and Dubai's thriving real estate market — delivering trusted import/export solutions and premium property investments with integrity and precision.
       </p>
     </div>
 
@@ -64,14 +55,22 @@
   </div>
 
   <!-- Bottom Workspace Image Section -->
-  <div class="w-full flex justify-end mt-4 md:mt-6 relative z-10">
-    <div class="w-full md:w-[58%] lg:w-[50%] rounded-tl-2xl rounded-bl-2xl overflow-hidden shadow-xl border-l border-y border-neutral-100 bg-neutral-50 group relative">
-      <!-- Gradient overlay to keep it premium -->
-      <div class="absolute inset-0 bg-gradient-to-t from-black/10 via-transparent to-transparent pointer-events-none z-10"></div>
-      <!-- Premium Office Image -->
-      <img src="titanhero.jpg"
-           alt="Titan Financial Brokers Modern Office Workspace"
-           class="w-full h-[180px] sm:h-[240px] md:h-[320px] lg:h-[360px] object-cover object-center transform scale-100 group-hover:scale-[1.03] transition-transform duration-700 ease-out" />
-    </div>
+<div class="max-w-7xl mx-auto px-6 md:px-12 w-full flex flex-col md:flex-row items-start gap-8 mt-4 md:mt-6 relative z-10">
+
+  <!-- Arabic Paragraph beside the image -->
+  <div class="w-full md:w-[42%] lg:w-[45%] mt-10">
+    <p class="text-base md:text-lg lg:text-2xl text-neutral-600 leading-relaxed text-right" dir="rtl">
+      ربط التجارة العالمية بسوق العقارات المزدهر في دبي — نقدم حلولاً موثوقة للاستيراد والتصدير واستثمارات عقارية متميزة بنزاهة ودقة.
+    </p>
   </div>
+
+  <!-- Premium Office Image -->
+  <div class="w-full md:w-[58%] lg:w-[55%] rounded-tl-2xl rounded-bl-2xl overflow-hidden shadow-xl border-l border-y border-neutral-100 bg-neutral-50 group relative">
+    <!-- Gradient overlay to keep it premium -->
+    <div class="absolute inset-0 bg-gradient-to-t from-black/10 via-transparent to-transparent pointer-events-none z-10"></div>
+    <img src="titanhero.jpg"
+         alt="Titan Financial Brokers Modern Office Workspace"
+         class="w-full h-[180px] sm:h-[240px] md:h-[320px] lg:h-[360px] object-cover object-center transform scale-100 group-hover:scale-[1.03] transition-transform duration-700 ease-out" />
+  </div>
+</div>
 </section>

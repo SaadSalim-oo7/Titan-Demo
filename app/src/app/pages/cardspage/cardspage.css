@@ -1,0 +1,249 @@
+/*
+  Add this to your index.html <head> (or import via angular.json styles/fonts):
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+*/
+
+:host{
+  --maroon-dark:#5A0C25;
+  --maroon:#7A1030;
+  --maroon-light:#9C1F42;
+  --gold:#C9A24B;
+  --gold-soft:#E7D2A0;
+  --ink:#1F1720;
+  --ink-soft:#5C525C;
+  --paper:#FBF8F6;
+  --hairline:rgba(31,23,32,0.10);
+  --radius:22px;
+
+  display:block;
+  font-family:'Inter',sans-serif;
+  color:var(--ink);
+  background:var(--paper);
+  -webkit-font-smoothing:antialiased;
+}
+
+*{box-sizing:border-box;}
+
+.hero{
+  position:relative;
+  padding:88px 24px 64px;
+  text-align:center;
+  background:linear-gradient(120deg,#F6E7EE 0%,#F1E4EF 30%,#EAE4F2 55%,#E4E9F3 100%);
+  overflow:hidden;
+}
+.hero::before{
+  content:"";
+  position:absolute;
+  top:-160px; right:-120px;
+  width:420px; height:420px;
+  border-radius:50%;
+  background:radial-gradient(circle at 30% 30%, rgba(201,162,75,0.28), transparent 70%);
+}
+.hero::after{
+  content:"";
+  position:absolute;
+  bottom:-180px; left:-140px;
+  width:420px; height:420px;
+  border-radius:50%;
+  background:radial-gradient(circle at 60% 40%, rgba(122,16,48,0.16), transparent 70%);
+}
+.eyebrow{
+  position:relative;
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  font-size:12.5px;
+  font-weight:600;
+  letter-spacing:0.14em;
+  text-transform:uppercase;
+  color:var(--maroon);
+  margin-bottom:22px;
+}
+.eyebrow::before,.eyebrow::after{
+  content:"";
+  width:26px; height:1px;
+  background:var(--gold);
+}
+h1{
+  position:relative;
+  font-family:'Fraunces',serif;
+  font-weight:500;
+  font-size:clamp(38px,5vw,58px);
+  line-height:1.08;
+  margin:0 0 20px;
+  letter-spacing:-0.01em;
+}
+.hero p{
+  position:relative;
+  max-width:620px;
+  margin:0 auto;
+  font-size:17px;
+  line-height:1.65;
+  color:var(--ink-soft);
+}
+
+.section-head{
+  text-align:center;
+  padding:70px 24px 8px;
+}
+.section-head h2{
+  font-family:'Fraunces',serif;
+  font-weight:500;
+  font-size:clamp(26px,3vw,34px);
+  margin:0 0 8px;
+}
+.section-head span{
+  font-size:14px;
+  color:var(--ink-soft);
+}
+
+.grid{
+  max-width:1180px;
+  margin:0 auto;
+  padding:44px 24px 100px;
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:26px;
+}
+@media (max-width:920px){ .grid{grid-template-columns:repeat(2,1fr);} }
+@media (max-width:600px){ .grid{grid-template-columns:1fr;} }
+
+.card{
+  position:relative;
+  height:390px;
+  border-radius:var(--radius);
+  overflow:hidden;
+  cursor:pointer;
+  isolation:isolate;
+  box-shadow:0 14px 34px -18px rgba(31,23,32,0.35);
+  transition:transform .45s cubic-bezier(.22,1,.36,1), box-shadow .45s ease;
+}
+.card:hover{
+  transform:translateY(-6px);
+  box-shadow:0 26px 46px -18px rgba(31,23,32,0.42);
+}
+
+.card-bg{
+  position:absolute; inset:0;
+  background:var(--grad);
+}
+.card-bg::before{
+  content:"";
+  position:absolute; inset:0;
+  background-image:
+    radial-gradient(circle at 85% 12%, rgba(255,255,255,0.14), transparent 45%),
+    repeating-linear-gradient(115deg, rgba(255,255,255,0.05) 0px, rgba(255,255,255,0.05) 1px, transparent 1px, transparent 34px);
+}
+.card-bg::after{
+  content:"";
+  position:absolute; inset:0;
+  background:linear-gradient(to top, rgba(0,0,0,0.62) 0%, rgba(0,0,0,0.18) 42%, rgba(0,0,0,0) 68%);
+  transition:background .4s ease;
+}
+.card:hover .card-bg::after{
+  background:linear-gradient(to top, rgba(0,0,0,0.80) 0%, rgba(0,0,0,0.45) 55%, rgba(0,0,0,0.05) 100%);
+}
+
+.chip{
+  position:absolute;
+  top:30px; left:30px;
+  width:42px; height:32px;
+  border-radius:7px;
+  background:linear-gradient(135deg,#F3DFA6,#C9A24B 55%,#9C7A2E);
+  z-index:2;
+  box-shadow:inset 0 0 0 1px rgba(255,255,255,0.35);
+}
+.chip::before{
+  content:"";
+  position:absolute; inset:6px;
+  border-radius:3px;
+  background:
+    linear-gradient(rgba(0,0,0,0.18), rgba(0,0,0,0.18)) center/100% 1px no-repeat,
+    linear-gradient(rgba(0,0,0,0.18), rgba(0,0,0,0.18)) center/1px 100% no-repeat;
+}
+
+.card-icon{
+  position:absolute;
+  top:26px; right:26px;
+  width:40px; height:40px;
+  border-radius:50%;
+  background:rgba(255,255,255,0.16);
+  border:1px solid rgba(255,255,255,0.28);
+  display:flex; align-items:center; justify-content:center;
+  z-index:2;
+}
+.card-icon ::ng-deep svg{width:18px;height:18px;stroke:#fff;fill:none;}
+
+.card-content{
+  position:absolute; left:0; right:0; bottom:0;
+  padding:26px 28px 28px;
+  z-index:2;
+  color:#fff;
+}
+.card-name{
+  font-family:'Fraunces',serif;
+  font-size:23px;
+  font-weight:500;
+  letter-spacing:0.01em;
+}
+.card-desc{
+  max-height:0;
+  opacity:0;
+  overflow:hidden;
+  transition:max-height .45s cubic-bezier(.22,1,.36,1), opacity .35s ease .05s, margin .45s ease;
+  font-size:13.5px;
+  line-height:1.6;
+  color:rgba(255,255,255,0.86);
+  margin-top:0;
+}
+.card:hover .card-desc{
+  max-height:70px;
+  opacity:1;
+  margin-top:10px;
+}
+
+.card-actions{
+  max-height:0;
+  opacity:0;
+  overflow:hidden;
+  display:flex;
+  gap:10px;
+  transition:max-height .45s cubic-bezier(.22,1,.36,1) .05s, opacity .35s ease .12s, margin .45s ease .05s;
+}
+.card:hover .card-actions{
+  max-height:50px;
+  opacity:1;
+  margin-top:16px;
+}
+.btn{
+  border:none;
+  border-radius:999px;
+  padding:10px 18px;
+  font-family:'Inter',sans-serif;
+  font-size:12.5px;
+  font-weight:600;
+  letter-spacing:0.01em;
+  cursor:pointer;
+  white-space:nowrap;
+}
+.btn-ghost{
+  background:rgba(255,255,255,0.14);
+  color:#fff;
+  border:1px solid rgba(255,255,255,0.5);
+  backdrop-filter:blur(2px);
+}
+.btn-ghost:hover{ background:rgba(255,255,255,0.24); }
+.btn-solid{
+  background:var(--gold);
+  color:#3A2A08;
+}
+.btn-solid:hover{ background:#DAB768; }
+
+.footnote{
+  text-align:center;
+  font-size:12.5px;
+  color:var(--ink-soft);
+  padding-bottom:60px;
+  letter-spacing:0.02em;
+}

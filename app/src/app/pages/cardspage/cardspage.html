@@ -1,0 +1,28 @@
+<section class="hero">
+  <div class="eyebrow">Axis Bank Cards</div>
+  <h1>Types of Bank Cards</h1>
+  <p>Explore our wide range of cards tailored to your spending habits, reward preferences and financial goals. Apply online and enjoy exclusive benefits.</p>
+</section>
+
+<div class="section-head">
+  <h2>Find the right card for your lifestyle</h2>
+  <span>Hover a card to see what it offers</span>
+</div>
+
+<div class="grid">
+  <div class="card" *ngFor="let card of cards" [style.--grad]="card.gradient">
+    <div class="card-bg"></div>
+    <div class="chip"></div>
+    <div class="card-icon" [innerHTML]="card.safeIcon"></div>
+    <div class="card-content">
+      <div class="card-name">{{ card.name }}</div>
+      <div class="card-desc">{{ card.description }}</div>
+      <div class="card-actions">
+        <button class="btn btn-ghost" type="button">Explore More</button>
+        <button class="btn btn-solid" type="button">Apply Now</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="footnote">Terms and conditions apply. Rates and rewards vary by card variant.</div>
