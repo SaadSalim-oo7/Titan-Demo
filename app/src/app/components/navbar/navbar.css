@@ -1,0 +1,59 @@
+.nav-link {
+  display: inline-block;
+  white-space: nowrap;
+  min-width: fit-content;
+}
+
+/* English letters */
+.nav-link .letter {
+  display: inline-block;
+  transform: translateY(0) rotate(0deg);
+  transition: color 0.3s ease;
+}
+
+.nav-link:hover .letter {
+  animation: letterRise 0.45s ease forwards;
+}
+
+@keyframes letterRise {
+  0% {
+    transform: translateY(0) rotate(0deg);
+  }
+  40% {
+    transform: translateY(-6px) rotate(-10deg);
+  }
+  100% {
+    transform: translateY(-3px) rotate(0deg);
+    color: #B8860B;
+  }
+}
+
+.lang-ar {
+  display: inline-block;
+  font-family: 'Noto Naskh Arabic', 'Tahoma', sans-serif;
+  direction: rtl;
+}
+
+.letter-ar {
+  display: inline-block;
+  transform: translateY(0) rotate(0deg);
+}
+
+.lang-ar .letter-ar {
+  animation: letterRiseAr 0.45s ease forwards;
+}
+
+@keyframes letterRiseAr {
+  0% {
+    opacity: 0;
+    transform: translateY(6px) rotate(0deg);
+  }
+  40% {
+    opacity: 1;
+    transform: translateY(-6px) rotate(6deg);
+  }
+  100% {
+    transform: translateY(-3px) rotate(0deg);
+    color: #B8860B;
+  }
+}
