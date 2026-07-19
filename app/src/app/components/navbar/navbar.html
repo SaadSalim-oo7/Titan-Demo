@@ -9,14 +9,14 @@
 
       <!-- Desktop Menu -->
       <div class="hidden md:flex items-center gap-8 text-sm font-semibold">
-        <a href="#" class="text-gray-700 hover:text-[#B8860B]">HOME</a>
-        <a href="#" class="text-gray-700 hover:text-[#B8860B]">IMPORT &amp; EXPORT</a>
-        <a href="#" class="text-gray-700 hover:text-[#B8860B]">REAL ESTATE</a>
-        <a href="#" class="text-gray-700 hover:text-[#B8860B]">INVESTMENT FIRM</a>
-        <a href="#" class="text-gray-700 hover:text-[#B8860B]">BANK CARDS</a>
-        <a href="#" class="text-gray-700 hover:text-[#B8860B]">CALCULATOR</a>
-        <a href="#" class="text-gray-700 hover:text-[#B8860B]">ABOUT US</a>
-        <a href="#" class="text-gray-700 hover:text-[#B8860B]">CONTACT US</a>
+        <a routerLink="/" routerLinkActive="text-[#B8860B]" class="text-gray-700 hover:text-[#B8860B] hover:cursor-pointer">HOME</a>
+        <a routerLink="/import-export" routerLinkActive="text-[#B8860B]" class="text-gray-700 hover:text-[#B8860B] hover:cursor-pointer">IMPORT &amp; EXPORT</a>
+        <a routerLink="/real-estate" routerLinkActive="text-[#B8860B]" class="text-gray-700 hover:text-[#B8860B] hover:cursor-pointer">REAL ESTATE</a>
+        <a routerLink="/investment-firm" routerLinkActive="text-[#B8860B]" class="text-gray-700 hover:text-[#B8860B] hover:cursor-pointer">INVESTMENT FIRM</a>
+        <a routerLink="/bank-cards" routerLinkActive="text-[#B8860B]" class="text-gray-700 hover:text-[#B8860B] hover:cursor-pointer">BANK CARDS</a>
+        <a routerLink="/calculator" routerLinkActive="text-[#B8860B]" class="text-gray-700 hover:text-[#B8860B] hover:cursor-pointer">CALCULATOR</a>
+        <a routerLink="/about-us" routerLinkActive="text-[#B8860B]" class="text-gray-700 hover:text-[#B8860B] hover:cursor-pointer">ABOUT US</a>
+        <a routerLink="/contact-us" routerLinkActive="text-[#B8860B]" class="text-gray-700 hover:text-[#B8860B] hover:cursor-pointer">CONTACT US</a>
       </div>
 
       <!-- Mobile Menu Button -->
@@ -29,14 +29,14 @@
   <!-- Mobile Menu -->
   <div [class.hidden]="!isMobileMenuOpen" class="md:hidden bg-white/90 backdrop-blur-md border-t">
     <div class="px-6 py-4 flex flex-col gap-4 text-sm font-medium">
-      <a href="#" class="text-gray-700 hover:text-[#B8860B]">HOME</a>
-      <a href="#" class="text-gray-700 hover:text-[#B8860B]">IMPORT &amp; EXPORT</a>
-      <a href="#" class="text-gray-700 hover:text-[#B8860B]">REAL ESTATE</a>
-      <a href="#" class="text-gray-700 hover:text-[#B8860B]">INVESTMENT FIRM</a>
-      <a href="#" class="text-gray-700 hover:text-[#B8860B]">BANK CARDS</a>
-      <a href="#" class="text-gray-700 hover:text-[#B8860B]">CALCULATOR</a>
-      <a href="#" class="text-gray-700 hover:text-[#B8860B]">ABOUT US</a>
-      <a href="#" class="text-gray-700 hover:text-[#B8860B]">CONTACT US</a>
+      <a routerLink="/" routerLinkActive="text-[#B8860B]" class="text-gray-700 hover:text-[#B8860B] hover:cursor-pointer">HOME</a>
+        <a routerLink="/import-export" routerLinkActive="text-[#B8860B]" class="text-gray-700 hover:text-[#B8860B] hover:cursor-pointer">IMPORT &amp; EXPORT</a>
+        <a routerLink="/real-estate" routerLinkActive="text-[#B8860B]" class="text-gray-700 hover:text-[#B8860B] hover:cursor-pointer">REAL ESTATE</a>
+        <a routerLink="/investment-firm" routerLinkActive="text-[#B8860B]" class="text-gray-700 hover:text-[#B8860B] hover:cursor-pointer">INVESTMENT FIRM</a>
+        <a routerLink="/bank-cards" routerLinkActive="text-[#B8860B]" class="text-gray-700 hover:text-[#B8860B] hover:cursor-pointer">BANK CARDS</a>
+        <a routerLink="/calculator" routerLinkActive="text-[#B8860B]" class="text-gray-700 hover:text-[#B8860B] hover:cursor-pointer">CALCULATOR</a>
+        <a routerLink="/about-us" routerLinkActive="text-[#B8860B]" class="text-gray-700 hover:text-[#B8860B] hover:cursor-pointer">ABOUT US</a>
+        <a routerLink="/contact-us" routerLinkActive="text-[#B8860B]" class="text-gray-700 hover:text-[#B8860B] hover:cursor-pointer">CONTACT US</a>
     </div>
   </div>
 </nav>

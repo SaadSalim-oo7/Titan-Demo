@@ -1,0 +1,208 @@
+<!-- ================= PINNED HERO ================= -->
+<section #heroWrapper class="relative" [style.height.px]="wrapperHeightPx">
+  <div class="sticky top-0 h-screen w-full overflow-hidden">
+
+    <!-- Background image: stays completely still, never moves or scrolls -->
+    <img
+      src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=1600&auto=format&fit=crop&q=80"
+      alt="Aerial view of a Dubai residential resort pool"
+      class="absolute inset-0 h-full w-full object-cover"
+    />
+    <div class="absolute inset-0 bg-black" [style.opacity]="overlayOpacity"></div>
+
+    <!-- Watermark script logo, fades in as a mid-scroll cue -->
+    <span
+      class="pointer-events-none absolute bottom-10 left-6 select-none font-serif text-3xl italic text-white md:left-12"
+      [style.opacity]="watermarkOpacity"
+    >
+      Beach
+    </span>
+
+    <!-- Hero headline + CTA: shrinks, rises, then fades as you scroll -->
+    <div
+      class="absolute inset-0 flex flex-col items-center justify-center px-6 text-center"
+      [style.transform]="heroTransform"
+      [style.opacity]="heroOpacity"
+    >
+      <h1 class="max-w-3xl font-serif text-3xl font-normal leading-tight text-white md:text-5xl">
+        Invest with Confidence.<br> Grow with UAC.
+      </h1>
+      <h3 class="mt-5 max-w-5xl font-serif text-2xl font-normal leading-tight text-white md:text-4xl">Invest in properties that combine stability, growth, and world-class opportunities for every investor.</h3>
+      <button
+        class="mt-8 border border-white px-8 py-3 text-xs font-semibold uppercase tracking-[0.2em] text-white transition-colors hover:bg-white hover:text-black"
+      >
+        Enquire Now
+      </button>
+    </div>
+
+    <!-- Fixed enquiry shortcut, stays put through the whole scroll -->
+    <button
+      class="fixed bottom-10 right-6 z-30 flex h-11 w-11 items-center justify-center rounded-md bg-black text-white shadow-lg md:right-10"
+      aria-label="Email us"
+    >
+      &#9993;
+    </button>
+  </div>
+</section>
+
+<!-- ================= WAYS TO INVEST ================= -->
+<section class="bg-[#D3D5F5] px-6 py-24 md:px-12 md:py-32">
+  <div class="mx-auto max-w-7xl">
+
+    <div class="mx-auto max-w-2xl text-center">
+      <span class="mb-4 block text-sm font-semibold uppercase tracking-widest text-neutral-600">
+        Investment Opportunities
+      </span>
+      <h2 class="font-serif text-3xl font-normal tracking-tight text-teal-900 lg:text-4xl">
+        Ways to Invest in Dubai
+      </h2>
+      <p class="mx-auto mt-5 max-w-xl text-base leading-relaxed text-neutral-700 lg:text-lg">
+        Every investor's goals are different. Explore the paths our clients most
+        often choose, and the returns each one is built around.
+      </p>
+    </div>
+
+    <div class="mt-16 grid grid-cols-1 items-start gap-12 lg:grid-cols-[1.1fr_0.9fr] lg:gap-16">
+
+      <!-- LEFT: accordion list -->
+      <div>
+        <div
+          *ngFor="let inv of investments; let i = index"
+          class="border-b border-neutral-900/15"
+        >
+          <button
+            type="button"
+            (click)="selectInvestment(i)"
+            class="flex w-full items-center gap-6 py-6 text-left"
+          >
+            <span
+              class="font-serif text-sm transition-colors"
+              [class.text-teal-900]="activeIndex === i"
+              [class.text-neutral-400]="activeIndex !== i"
+            >
+              {{ pad(i + 1) }}
+            </span>
+
+            <span
+              class="flex-1 font-serif text-xl transition-colors md:text-2xl"
+              [class.text-teal-900]="activeIndex === i"
+              [class.text-neutral-700]="activeIndex !== i"
+            >
+              {{ inv.title }}
+            </span>
+
+            <svg
+              class="h-4 w-4 shrink-0 text-neutral-600 transition-transform duration-300"
+              [class.rotate-180]="activeIndex === i"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+              stroke-width="1.8"
+            >
+              <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
+            </svg>
+          </button>
+
+          <div class="inv-panel" [class.inv-panel-open]="activeIndex === i">
+            <div>
+              <div class="pb-8 pl-0 pr-4 md:pl-[52px]">
+                <p class="text-neutral-700 leading-relaxed">
+                  {{ inv.description }}
+                </p>
+
+                <ul class="mt-5 space-y-2.5">
+                  <li
+                    *ngFor="let benefit of inv.benefits"
+                    class="flex items-start gap-3 text-sm text-neutral-700"
+                  >
+                    <svg
+                      class="mt-0.5 h-4 w-4 shrink-0 text-teal-800"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                      stroke-width="2"
+                    >
+                      <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+                    </svg>
+                    <span>{{ benefit }}</span>
+                  </li>
+                </ul>
+
+                <!-- image shows here on mobile, where the sticky right panel is hidden -->
+                <img
+                  [src]="inv.image"
+                  [alt]="inv.title"
+                  class="mt-6 h-48 w-full rounded-xl object-cover shadow-lg shadow-black/10 lg:hidden"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- RIGHT: sticky cross-fading image (desktop only) -->
+      <div class="relative hidden h-[560px] overflow-hidden rounded-2xl shadow-2xl shadow-black/20 lg:sticky lg:top-24 lg:block">
+        <img
+          *ngFor="let inv of investments; let i = index"
+          [src]="inv.image"
+          [alt]="inv.title"
+          class="inv-image absolute inset-0 h-full w-full object-cover"
+          [class.inv-image-active]="activeIndex === i"
+        />
+        <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent"></div>
+        <div class="absolute bottom-8 left-8 right-8 text-white">
+          <span class="text-xs uppercase tracking-widest text-white/70">Investment Type</span>
+          <p class="mt-2 font-serif text-2xl">{{ investments[activeIndex].title }}</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ================= WHY INVEST IN DUBAI ================= -->
+  <div class="mx-auto max-w-7xl" #whyInvestSection>
+
+    <div class="mt-20 mx-auto max-w-2xl text-center rs-reveal" [class.rs-reveal-visible]="whyInvestVisible">
+      <h2 class="font-serif text-3xl font-normal tracking-tight text-teal-900 lg:text-4xl">
+        Why Invest in Dubai
+      </h2>
+      <p class="mx-auto mt-5 max-w-xl text-base leading-relaxed text-neutral-700 lg:text-lg">
+        A market built on transparent regulation, strong fundamentals, and
+        sustained global demand — here's what continues to draw investors in 2026.
+      </p>
+    </div>
+
+    <div class="mt-16 grid grid-cols-1 gap-x-10 gap-y-12 md:grid-cols-2 lg:grid-cols-3">
+      <div
+        *ngFor="let reason of whyInvest; let i = index"
+        class="rs-reveal group rounded-2xl border border-neutral-200 bg-[#D3D5F5]/20 p-8 transition-shadow hover:shadow-xl hover:shadow-black/5"
+        [class.rs-reveal-visible]="whyInvestVisible"
+      >
+        <div class="flex items-center justify-between">
+          <span class="font-serif text-sm text-neutral-400">{{ pad(i + 1) }}</span>
+          <div class="flex h-10 w-10 items-center justify-center rounded-full bg-[#D3D5F5] text-teal-900">
+            <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8">
+              <path stroke-linecap="round" stroke-linejoin="round" [attr.d]="reason.icon" />
+            </svg>
+          </div>
+        </div>
+
+        <h3 class="mt-6 font-serif text-xl text-teal-900 md:text-2xl">
+          {{ reason.title }}
+        </h3>
+        <p class="mt-3 text-sm leading-relaxed text-neutral-700">
+          {{ reason.description }}
+        </p>
+      </div>
+    </div>
+    <div class="flex justify-center">
+  <button
+    class="mt-10 border border-teal-900 px-8 py-3 text-xs font-semibold uppercase tracking-[0.2em] text-teal-900 transition-colors hover:bg-black hover:text-white hover:border-black"
+  >
+    Enquire Now
+  </button>
+</div>
+
+  </div>
+
+</section>
