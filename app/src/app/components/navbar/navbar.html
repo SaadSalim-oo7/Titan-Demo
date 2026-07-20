@@ -8,23 +8,15 @@
       </div>
 
       <!-- Desktop Menu -->
-      <div class="hidden lg:flex items-center gap-6 xl:gap-8 text-sm font-semibold">
-        <a *ngFor="let link of navLinks; let idx = index"
+      <div class="hidden lg:flex items-center gap-4 xl:gap-5 text-sm font-semibold">
+        <a *ngFor="let link of navLinks"
            [routerLink]="link.path"
            routerLinkActive="text-[#B8860B]"
-           (mouseenter)="onLinkHover(idx)"
-           (mouseleave)="onLinkLeave()"
            class="nav-link text-gray-700 hover:cursor-pointer whitespace-nowrap">
 
-          <span *ngIf="hoveredIndex !== idx" class="lang-en">
+          <span class="lang-en">
             <span *ngFor="let letter of link.label | splitLetters; let i = index"
                   class="letter"
-                  [style.animation-delay.ms]="i * 35">{{ letter === ' ' ? '\u00A0' : letter }}</span>
-          </span>
-
-          <span *ngIf="hoveredIndex === idx" class="lang-ar" dir="rtl">
-            <span *ngFor="let letter of link.labelAr | splitLetters; let i = index"
-                  class="letter letter-ar"
                   [style.animation-delay.ms]="i * 35">{{ letter === ' ' ? '\u00A0' : letter }}</span>
           </span>
 

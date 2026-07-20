@@ -1,0 +1,115 @@
+<div *ngIf="isOpen"
+     class="popup-overlay fixed inset-0 z-[100] flex items-center justify-center bg-black/40 backdrop-blur-md p-4"
+     (click)="onOverlayClick($event)">
+
+  <div class="relative w-full max-w-4xl overflow-hidden rounded-2xl shadow-2xl">
+
+    <!-- Background image + overlay -->
+    <div class="absolute inset-0">
+      <img src="https://images.unsplash.com/photo-1512453979798-5ea266f8880c?w=1200&auto=format&fit=crop&q=80"
+           alt="Dubai skyline"
+           class="h-full w-full object-cover" />
+      <div class="absolute inset-0 bg-gradient-to-br from-black/85 via-black/70 to-[#B8860B]/40"></div>
+    </div>
+
+    <!-- Close button -->
+    <button (click)="onClose()"
+            class="absolute right-4 top-4 z-20 flex h-9 w-9 items-center justify-center rounded-full bg-white/10 text-white transition-colors hover:bg-white/20"
+            aria-label="Close popup">
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+      </svg>
+    </button>
+
+    <!-- Content -->
+    <div class="relative z-10 grid grid-cols-1 lg:grid-cols-2">
+
+      <!-- Left: text -->
+      <div class="flex flex-col justify-center px-6 py-10 sm:px-10 lg:py-16">
+        <span class="mb-3 block text-xs sm:text-sm font-semibold uppercase tracking-widest text-[#D4AF37]">
+          Let's Connect
+        </span>
+        <h2 class="mb-4 text-2xl sm:text-3xl lg:text-4xl font-serif font-normal leading-tight text-white">
+          Start Your Journey<br class="hidden sm:block" /> With Us Today
+        </h2>
+        <p class="max-w-sm text-sm sm:text-base leading-relaxed text-white/70">
+          Whether it's real estate, trade, investment or banking — tell us what you need and our team in Dubai will reach out shortly.
+        </p>
+      </div>
+
+      <!-- Right: form -->
+      <div class="bg-white/95 px-6 py-8 sm:px-10 sm:py-10">
+
+        <div *ngIf="submitted && connectForm.valid" class="flex h-full flex-col items-center justify-center text-center">
+          <div class="mb-4 flex h-14 w-14 items-center justify-center rounded-full bg-green-100">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7 text-green-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+            </svg>
+          </div>
+          <h3 class="text-lg font-semibold text-neutral-900">Thank you!</h3>
+          <p class="mt-1 text-sm text-neutral-600">We've received your request and will be in touch soon.</p>
+        </div>
+
+        <form *ngIf="!(submitted && connectForm.valid)" [formGroup]="connectForm" (ngSubmit)="onSubmit()" class="flex flex-col gap-4">
+
+          <!-- Full Name -->
+          <div>
+            <label class="mb-1 block text-xs font-semibold uppercase tracking-wide text-neutral-700">Full Name</label>
+            <input type="text" formControlName="fullName" placeholder="John Doe"
+                   class="w-full rounded-lg border px-4 py-2.5 text-sm text-neutral-900 outline-none transition-colors focus:border-[#B8860B]"
+                   [class.border-neutral-300]="!(f['fullName'].invalid && f['fullName'].touched)"
+                   [class.border-red-400]="f['fullName'].invalid && f['fullName'].touched" />
+            <p *ngIf="f['fullName'].invalid && f['fullName'].touched" class="mt-1 text-xs text-red-500">
+              Please enter your full name.
+            </p>
+          </div>
+
+          <!-- Email -->
+          <div>
+            <label class="mb-1 block text-xs font-semibold uppercase tracking-wide text-neutral-700">Email Address</label>
+            <input type="email" formControlName="email" placeholder="you@example.com"
+                   class="w-full rounded-lg border px-4 py-2.5 text-sm text-neutral-900 outline-none transition-colors focus:border-[#B8860B]"
+                   [class.border-neutral-300]="!(f['email'].invalid && f['email'].touched)"
+                   [class.border-red-400]="f['email'].invalid && f['email'].touched" />
+            <p *ngIf="f['email'].invalid && f['email'].touched" class="mt-1 text-xs text-red-500">
+              Please enter a valid email address.
+            </p>
+          </div>
+
+          <!-- Phone -->
+          <div>
+            <label class="mb-1 block text-xs font-semibold uppercase tracking-wide text-neutral-700">Phone Number</label>
+            <input type="tel" formControlName="phone" placeholder="+971 50 123 4567"
+                   class="w-full rounded-lg border px-4 py-2.5 text-sm text-neutral-900 outline-none transition-colors focus:border-[#B8860B]"
+                   [class.border-neutral-300]="!(f['phone'].invalid && f['phone'].touched)"
+                   [class.border-red-400]="f['phone'].invalid && f['phone'].touched" />
+            <p *ngIf="f['phone'].invalid && f['phone'].touched" class="mt-1 text-xs text-red-500">
+              Please enter a valid phone number.
+            </p>
+          </div>
+
+          <!-- Interest -->
+          <div>
+            <label class="mb-1 block text-xs font-semibold uppercase tracking-wide text-neutral-700">Interest</label>
+            <select formControlName="interest"
+                    class="w-full rounded-lg border bg-white px-4 py-2.5 text-sm text-neutral-900 outline-none transition-colors focus:border-[#B8860B]"
+                    [class.border-neutral-300]="!(f['interest'].invalid && f['interest'].touched)"
+                    [class.border-red-400]="f['interest'].invalid && f['interest'].touched">
+              <option value="" disabled selected>Select an option</option>
+              <option *ngFor="let option of interestOptions" [value]="option">{{ option }}</option>
+            </select>
+            <p *ngIf="f['interest'].invalid && f['interest'].touched" class="mt-1 text-xs text-red-500">
+              Please select an interest.
+            </p>
+          </div>
+
+          <button type="submit"
+                  class="mt-2 w-full rounded-lg bg-[#B8860B] px-6 py-3 text-sm font-semibold uppercase tracking-widest text-white transition-colors hover:bg-[#9c7209]">
+            Submit
+          </button>
+        </form>
+
+      </div>
+    </div>
+  </div>
+</div>
