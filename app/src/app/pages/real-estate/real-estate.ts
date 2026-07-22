@@ -9,6 +9,7 @@ import {
   ViewChild,
 } from '@angular/core';
 import { CommonModule, isPlatformBrowser } from '@angular/common';
+import { PopupService } from '../../services/popup';
 
 interface InvestmentType {
   title: string;
@@ -22,40 +23,6 @@ interface WhyInvestReason {
   description: string;
   icon: string;
 }
-
-/**
- * Real Estate landing page.
- *
- * The hero image is pinned (`position: sticky`) inside a tall wrapper
- * (`heroWrapper`, ~2.4x viewport height). As the user scrolls through that
- * wrapper, the image itself never moves — only the content stacked on top
- * of it animates, driven purely by scroll progress (0 -> 1):
- *
- *   progress 0.00 - 0.15  -> plain hero, big centered headline + button
- *   progress 0.15 - 0.35  -> "Beach" watermark fades in, bottom-left
- *   progress 0.45 - 0.70  -> top nav bar slides down into view
- *   progress 0.20 - 0.85  -> headline shrinks + rises toward the nav
- *   progress 0.70 - 1.00  -> headline fades out, handing off to the
- *                            normal "Residential Communities" section
- *                            that follows underneath.
- *
- * Once the wrapper has fully scrolled past, the sticky image is pushed
- * off screen by normal document flow and the page continues as a
- * standard scrolling section.
- *
- * Further down the page, the "Ways to Invest" section is a numbered
- * accordion: clicking an item expands its description + benefits and
- * cross-fades the matching image in the sticky panel on the right
- * (large screens only — on mobile it's a plain stacked accordion).
- *
- * The "Why Invest in Dubai" section is a reveal-on-scroll grid of
- * reasons, using the same IntersectionObserver + rs-reveal pattern as
- * the communities section below it.
- *
- * NOTE: this component reads `window` for scroll math. Since the app is
- * server-rendered, all `window` access is guarded behind `isBrowser` so
- * nothing runs during SSR.
- */
 @Component({
   selector: 'app-real-estate',
   standalone: true,
@@ -169,9 +136,8 @@ export class RealEstate implements AfterViewInit, OnDestroy {
   pad(n: number): string {
     return n < 10 ? `0${n}` : `${n}`;
   }
-  // ------------------------------------------------
 
-  // ---------- Why Invest in Dubai section ----------
+
   whyInvest: WhyInvestReason[] = [
     {
       title: 'Tax-Efficient Ownership',
@@ -224,9 +190,12 @@ export class RealEstate implements AfterViewInit, OnDestroy {
   ];
   // ------------------------------------------------
 
-  constructor(@Inject(PLATFORM_ID) platformId: Object) {
-    this.isBrowser = isPlatformBrowser(platformId);
-  }
+ constructor(
+  @Inject(PLATFORM_ID) platformId: Object,
+  public popupService: PopupService
+) {
+  this.isBrowser = isPlatformBrowser(platformId);
+}
 
   ngAfterViewInit(): void {
     if (!this.isBrowser) {

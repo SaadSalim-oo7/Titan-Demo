@@ -1,10 +1,10 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { PopupService } from '../../services/popup';
 
 interface LookingForOption {
   title: string;
   points: string[];
-  selected: boolean;
 }
 
 @Component({
@@ -23,7 +23,6 @@ export class ContactSelect {
         'Customs clearance and full trade documentation handled for you',
         'Freight, shipping and last-mile delivery across 40+ countries',
       ],
-      selected: true,
     },
     {
       title: 'REAL ESTATE INVESTMENT',
@@ -32,13 +31,18 @@ export class ContactSelect {
         'Guidance on high-yield areas and investment strategy',
         'End-to-end transaction support, from offer to title deed',
       ],
-      selected: false,
+    },
+    {
+      title: 'BANK CARDS',
+      points: [
+        'Credit, debit, prepaid and commercial cards for every need',
+        'Guidance on choosing the right card for your spending profile',
+        'Fast application support and account setup assistance',
+      ],
     },
   ];
 
-  selectOption(index: number) {
-    this.options.forEach((opt, i) => (opt.selected = i === index));
-  }
+  constructor(public popupService: PopupService) {}
 
   scrollToTop() {
     window.scrollTo({ top: 0, behavior: 'smooth' });

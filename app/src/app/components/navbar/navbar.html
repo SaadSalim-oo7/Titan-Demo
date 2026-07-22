@@ -12,6 +12,7 @@
         <a *ngFor="let link of navLinks"
            [routerLink]="link.path"
            routerLinkActive="text-[#B8860B]"
+           (click)="onNavLinkClick(link, $event)"
            class="nav-link text-gray-700 hover:cursor-pointer whitespace-nowrap">
 
           <span class="lang-en">
@@ -36,7 +37,7 @@
       <a *ngFor="let link of navLinks"
          [routerLink]="link.path"
          routerLinkActive="text-[#B8860B]"
-         (click)="toggleMobileMenu()"
+         (click)="onNavLinkClick(link, $event); toggleMobileMenu()"
          class="text-gray-700 hover:text-[#B8860B] hover:cursor-pointer">{{ link.label }}</a>
     </div>
   </div>

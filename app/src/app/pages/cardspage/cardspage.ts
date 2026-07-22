@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { CommonModule, NgOptimizedImage } from '@angular/common';
 import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
+import { PopupService } from '../../services/popup';
 
 interface BankCard {
   name: string;
@@ -56,7 +57,11 @@ export class CardspageComponent {
       icon: `<svg viewBox="0 0 24 24" stroke-width="1.7"><rect x="3" y="9" width="18" height="9" rx="2"/><path d="M7 9V6a2 2 0 012-2h6a2 2 0 012 2v3"/></svg>`
     }
   ];
-  constructor(private sanitizer: DomSanitizer) {
+
+  constructor(
+    private sanitizer: DomSanitizer,
+    public popupService: PopupService
+  ) {
     this.cards = this.rawCards.map(card => ({
       ...card,
       safeIcon: this.sanitizer.bypassSecurityTrustHtml(card.icon)

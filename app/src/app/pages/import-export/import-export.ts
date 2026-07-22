@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { PopupService } from '../../services/popup';
 
 @Component({
   selector: 'app-import-export',
@@ -7,4 +8,6 @@ import { Component } from '@angular/core';
   templateUrl: './import-export.html',
   styleUrl: './import-export.css',
 })
-export class ImportExport {}
+export class ImportExport {
+  constructor(public popupService: PopupService) {}
+}

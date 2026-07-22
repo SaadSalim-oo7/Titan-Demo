@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { SplitLettersPipe } from '../../pipes/split-letters-pipe.spec';
+import { PopupService } from '../../services/popup';
 
 @Component({
   selector: 'app-navbar',
@@ -24,7 +25,16 @@ export class NavbarComponent {
     { path: '/contact-us', label: 'CONTACT US' }
   ];
 
+  constructor(public popupService: PopupService) {}
+
   toggleMobileMenu() {
     this.isMobileMenuOpen = !this.isMobileMenuOpen;
+  }
+
+  onNavLinkClick(link: { path: string; label: string }, event: MouseEvent) {
+    if (link.path === '/contact-us') {
+      event.preventDefault();
+      this.popupService.open();
+    }
   }
 }

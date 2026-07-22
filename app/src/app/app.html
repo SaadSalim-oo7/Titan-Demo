@@ -1,2 +1,7 @@
 <app-navbar></app-navbar>
 <router-outlet></router-outlet>
+
+<app-connect-popup
+  [isOpen]="popupService.isOpen()"
+  (closePopup)="popupService.close()">
+</app-connect-popup>
